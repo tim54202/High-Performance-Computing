@@ -26,7 +26,8 @@ In the striped algorithm, rows are distributed in a round-robin fashion across a
 This reduces load imbalance and makes better use of available processors.
 Communication Model: This method heavily relies on collective communication, such as MPI_Bcast to distribute vector data to all processes and MPI_Reduce to gather the final results efficiently.
 ![GitHub](Images/Striped.png)
-Communication Models
+
+## Communication Models
 1. Point-to-Point Communication:
 Point-to-point communication refers to direct data transfer between two specific processes. This is implemented using MPI_Send (to send data) and MPI_Recv (to receive data).
 Example: In the Row Block Parallel Algorithm, each process sends its results to a root process or other processes, facilitating efficient data exchange for smaller subsets of rows.
@@ -37,7 +38,7 @@ Objectives
 Implement and compare three parallel algorithms for sparse matrix-vector multiplication.
 Analyze the impact of communication models (point-to-point vs. collective) on performance.
 Evaluate performance gains of parallel algorithms compared to the serial version using metrics such as speed-up and communication overhead.
-Results & Discussion
+## Results & Discussion
 The results indicate that:
 
 All three parallel algorithms achieved significant speedup over the serial implementation.
