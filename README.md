@@ -6,7 +6,7 @@ High-Performance Computing (HPC) involves the use of supercomputers and parallel
 
 ## Problem: Sparse Matrix-Fat Vector Multiplication
 Sparse matrices are common in scientific computing, where most of the elements in the matrix are zero. The objective of this project is to efficiently multiply a sparse matrix stored in Compressed Sparse Row (CSR) format with a dense vector using parallel algorithms.
-[GitHub](Images/CSR-Transformation.png)
+![GitHub](Images/CSR-Transformation.png)
 
 ## Parallel Algorithms Implemented
 Three parallel algorithms have been implemented and analyzed for performance comparison:
@@ -15,17 +15,17 @@ Three parallel algorithms have been implemented and analyzed for performance com
 In this algorithm, the sparse matrix is divided into equal-sized blocks of rows, with each process handling one block.
 Each process performs the matrix-vector multiplication independently for its assigned block, and the results are then communicated to other processes.
 Communication Model: This algorithm primarily uses point-to-point communication via MPI_Send and MPI_Recv to exchange the results between processes.
-[GitHub](Images/Row-Block.png)
+![GitHub](Images/Row-Block.png)
 2. Row-Wise Parallel Algorithm
 In this method, the rows of the sparse matrix are distributed across all available processes. Each process is responsible for computing its assigned rows and contributing to the final result.
 This method distributes the computation evenly but requires frequent synchronization.
 Communication Model: Point-to-point communication is used for inter-process communication, but collective operations like MPI_Reduce may be used to aggregate the results.
-[GitHub](Images/Row-Wise.png)
+![GitHub](Images/Row-Wise.png)
 3. Striped Parallel Algorithm
 In the striped algorithm, rows are distributed in a round-robin fashion across all processes, with each process handling a subset of the rows in a distributed manner.
 This reduces load imbalance and makes better use of available processors.
 Communication Model: This method heavily relies on collective communication, such as MPI_Bcast to distribute vector data to all processes and MPI_Reduce to gather the final results efficiently.
-[GitHub](Images/Striped.png)
+![GitHub](Images/Striped.png)
 Communication Models
 1. Point-to-Point Communication:
 Point-to-point communication refers to direct data transfer between two specific processes. This is implemented using MPI_Send (to send data) and MPI_Recv (to receive data).
