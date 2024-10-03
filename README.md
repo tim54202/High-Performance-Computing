@@ -2,6 +2,7 @@
 ## Project Overview
 This project focuses on leveraging High-Performance Computing (HPC) techniques to solve the problem of sparse matrix-vector multiplication using parallel processing. The project implements and compares three parallel algorithms using MPI (Message Passing Interface) and evaluates their performance against a serial implementation.
 
+## HPC
 High-Performance Computing (HPC) involves the use of supercomputers and parallel processing techniques to solve complex computational problems at high speeds. By distributing tasks across multiple processors, HPC systems can handle large datasets and computational workloads more efficiently than traditional computing methods.
 
 ## Problem: Sparse Matrix-Fat Vector Multiplication
